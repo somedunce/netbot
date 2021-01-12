@@ -1,0 +1,102 @@
+﻿<Window x:Class="net.bot.beta.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:net.bot.beta"
+        mc:Ignorable="d"
+        Title="Net Bot Beta" Height="450" Width="800"
+        ResizeMode="NoResize"
+        WindowStyle="None" MouseDown="Window_MouseDown" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Background>
+        <RadialGradientBrush>
+            <GradientStop x:Name="BgGrad1" Color="#FF099FF5" Offset="0"/>
+            <GradientStop x:Name="BgGrad2" Color="#FF108DD4" Offset="1"/>
+        </RadialGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Rectangle Fill="#FF2B2626" Margin="2,2,2,2"></Rectangle>
+        <Label Content="Net Bot" HorizontalAlignment="Left" Margin="68,12,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Light">
+            <Label.Foreground>
+                <RadialGradientBrush>
+                    <GradientStop Color="#FF0074FF" Offset="0"/>
+                    <GradientStop Color="#FF00AEFF" Offset="1"/>
+                </RadialGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Beta" HorizontalAlignment="Left" Margin="153,12,0,0" VerticalAlignment="Top" Foreground="#FF978C8C" FontSize="24" FontWeight="Light"/>
+
+        <Button x:Name="HomeButton" Uid="0" Content="HOME" Background="#FF304151" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click"  Margin="10,62,680,356" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="AboutButton" Uid="1" Content="ABOUT" Background="#FF545454" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click_1" Margin="125,62,558,356"/>
+        <TextBox x:Name="GenerateAmount" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" TextWrapping="Wrap" Text="5" FontWeight="Light" VerticalAlignment="Top" Width="84" CaretBrush="White" Foreground="White" SelectionBrush="White" Visibility="Hidden"/>
+        <Button x:Name="GenerateButton" HorizontalAlignment="Left" Content="Generate" Margin="10,123,0,0" VerticalAlignment="Top" Width="110" Height="27" FontWeight="Light" Background="#FF757676" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click_2" Visibility="Hidden"></Button>
+        <TextBox x:Name="UsernameTextbox" FontWeight="Light"  Height="23" TextWrapping="Wrap" Text="" Width="120" Margin="83,96,597,331" Foreground="White"/>
+        <Button x:Name="OutputButton" Uid="1" Content="OUTPUT" Background="#FF545454" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click_1" Margin="369,62,314,356" Visibility="Hidden"/>
+        <RichTextBox x:Name="OutputTextbox" IsReadOnly="True" HorizontalAlignment="Left" Height="301" Margin="10,95,0,0" VerticalAlignment="Top" Width="780" Foreground="White" CaretBrush="White" SelectionBrush="White" Visibility="Hidden">
+            <FlowDocument>
+                <Paragraph Foreground="#FF918E8E">
+                    <Run x:Name="TotalGeneratedText" Text="Total Generated: 0"/>
+                    <Run x:Name="OutputTextboxText" Text="" Foreground="White"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Label x:Name="UsernameLabel" FontWeight="Light" Content="Username:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+        <Label x:Name="PasswordLabel" FontWeight="Light" Content="Password:" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+        <PasswordBox x:Name="PasswordTextbox" FontWeight="Light" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="83,125,0,0" Foreground="White"/>
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Width="84" Height="30" BorderBrush="{x:Null}" Foreground="White" Background="#FF545454" Click="Button_Click_3"/>
+        <RichTextBox x:Name="StatusBox" FontWeight="Light" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="127" Margin="99,204,0,0" Foreground="White" IsEnabled="False">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="Status:" Foreground="#FF9B9797"/>
+                    <Run x:Name="Statustext" Text="Not Logged in" Foreground="Red"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <Label x:Name="MadeByLabel1" FontWeight="Light" Content="Made by: " HorizontalAlignment="Left" Margin="12,95,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="18" Visibility="Hidden"/>
+        <Label x:Name="MadeByLabel2" FontWeight="Light" Content="somedunce" HorizontalAlignment="Left" Margin="88,95,0,0" VerticalAlignment="Top" PreviewMouseDown="Label_PreviewMouseDown" Cursor="Hand" FontSize="18" Visibility="Hidden">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0A73DC" Offset="0"/>
+                    <GradientStop Color="#FF049FD8" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="ThanksLabel" FontWeight="Light" Content="Thanks You" HorizontalAlignment="Left" Margin="12,118,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="14" Visibility="Hidden"/>
+        <Button x:Name="UtilsButton" Uid="1" Content="UTILS" Background="#FF545454" BorderBrush="{x:Null}" Foreground="White" Click="UtilsButton_Click"  Margin="247,62,436,356"/>
+        <Button x:Name="Logoutbutton" Content="Logout" HorizontalAlignment="Left" Margin="697,401,0,0" VerticalAlignment="Top" Width="93" Height="39" Background="#FF545454" BorderBrush="{x:Null}" Foreground="White" IsEnabled="False" Click="Button_Click_4"/>
+        <Label x:Name="ThanksUserLabel" FontWeight="Light" Content="ramtinak" HorizontalAlignment="Left" Margin="83,118,0,0" VerticalAlignment="Top" FontSize="14" Cursor="Hand" PreviewMouseDown="ThanksUserLabel_PreviewMouseDown" Visibility="Hidden">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF075EDC" Offset="0"/>
+                    <GradientStop Color="#FF105A7C" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="ThanksLabel2" FontWeight="Light" Content="For making the api" HorizontalAlignment="Left" Margin="139,118,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="14" Visibility="Hidden"/>
+        <Label x:Name="ProjectUrl" FontWeight="Light" Content="API Repo" HorizontalAlignment="Left" Margin="252,118,0,0" VerticalAlignment="Top" FontSize="14" Cursor="Hand" PreviewMouseDown="ProjectUrl_PreviewMouseDown" Visibility="Hidden">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF107B9B" Offset="0"/>
+                    <GradientStop Color="#FF0897E8" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Image x:Name="IconBox" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Source="Resources/logo_blue.png" Margin="12,7,0,0"/>
+        <CheckBox x:Name="RememberMeCheckBox" Content="Remember Me" HorizontalAlignment="Left" Margin="13,156,0,0" VerticalAlignment="Top" Foreground="#FFDAD6D6" Background="#FF1A80D1" BorderBrush="{x:Null}" Click="RememberMeCheckBox_Click"/>
+        <CheckBox x:Name="LoginOnStartCheckBox" Content="Login on Start" HorizontalAlignment="Left" Margin="13,179,0,0" VerticalAlignment="Top" Foreground="#FFDAD6D6" Background="#FF1A80D1" BorderBrush="{x:Null}" IsEnabled="False"/>
+        <Button x:Name="SettingsButton" HorizontalAlignment="Left" Margin="12,401,0,0" VerticalAlignment="Top" Width="93" Height="39" Background="#FF545454" BorderBrush="{x:Null}" Foreground="White" Click="SettingsButton_Click" Content="Settings"/>
+        <Label x:Name="ExitButton" Content="x" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="765,10,10,0" VerticalAlignment="Top" Height="25" Width="25" Background="#FF575656" Cursor="Hand" PreviewMouseDown="ExitButton_PreviewMouseDown"/>
+        <Label x:Name="ThanksLabel3" FontWeight="Light" Content="Also thanks to " HorizontalAlignment="Left" Margin="13,137,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="14" Visibility="Hidden"/>
+        <!-- nejcgalof -->
+        <Label x:Name="ThanksUserLabel2" FontWeight="Light" Content="MaterialDesign" HorizontalAlignment="Left" Margin="99,137,0,0" VerticalAlignment="Top" FontSize="14" Cursor="Hand" PreviewMouseDown="ThanksUserLabel2_PreviewMouseDown" Visibility="Hidden">
+            <Label.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0773BD" Offset="0"/>
+                    <GradientStop Color="#FF007FD6" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+        <Label x:Name="ThanksLabel4" FontWeight="Light" Content="for the WPF library" HorizontalAlignment="Left" Margin="190,137,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="14" Visibility="Hidden"/>
+    </Grid>
+</Window>
